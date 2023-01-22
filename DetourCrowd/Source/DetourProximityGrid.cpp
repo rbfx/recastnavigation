@@ -16,6 +16,8 @@
 // 3. This notice may not be removed or altered from any source distribution.
 //
 
+// Modified by cosmy1 for Urho3D
+
 #include <string.h>
 #include <new>
 #include "DetourProximityGrid.h"
@@ -55,6 +57,7 @@ dtProximityGrid::dtProximityGrid() :
 	m_buckets(0),
 	m_bucketsSize(0)
 {
+	memset(&m_bounds, 0, sizeof(m_bounds));	// Urho3D
 }
 
 dtProximityGrid::~dtProximityGrid()

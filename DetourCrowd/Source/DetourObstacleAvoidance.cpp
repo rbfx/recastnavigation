@@ -16,6 +16,8 @@
 // 3. This notice may not be removed or altered from any source distribution.
 //
 
+// Modified by cosmy1 for Urho3D
+
 #include "DetourObstacleAvoidance.h"
 #include "DetourCommon.h"
 #include "DetourMath.h"
@@ -217,6 +219,7 @@ dtObstacleAvoidanceQuery::dtObstacleAvoidanceQuery() :
 	m_segments(0),
 	m_nsegments(0)
 {
+	memset(&m_params, 0, sizeof(m_params)); // Urho3D
 }
 
 dtObstacleAvoidanceQuery::~dtObstacleAvoidanceQuery()
