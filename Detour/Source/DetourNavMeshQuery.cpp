@@ -16,6 +16,8 @@
 // 3. This notice may not be removed or altered from any source distribution.
 //
 
+// Modified by Yao Wei Tjong for Urho3D
+
 #include <float.h>
 #include <string.h>
 #include "DetourNavMeshQuery.h"
@@ -704,6 +706,10 @@ dtStatus dtNavMeshQuery::findNearestPoly(const float* center, const float* halfE
 										 dtPolyRef* nearestRef, float* nearestPt, bool* isOverPoly) const
 {
 	dtAssert(m_nav);
+	
+	// Urho3D: null pointer check
+	if (nearestRef)
+		*nearestRef = 0;
 
 	if (!nearestRef)
 		return DT_FAILURE | DT_INVALID_PARAM;

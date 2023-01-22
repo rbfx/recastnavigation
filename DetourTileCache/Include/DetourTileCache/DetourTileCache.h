@@ -1,6 +1,8 @@
 #ifndef DETOURTILECACHE_H
 #define DETOURTILECACHE_H
 
+// Modified by Lasse Oorni for Urho3D
+
 #include "DetourStatus.h"
 
 typedef unsigned int dtObstacleRef;
@@ -163,7 +165,9 @@ public:
 	
 	void getObstacleBounds(const struct dtTileCacheObstacle* ob, float* bmin, float* bmax) const;
 	
-
+	// Urho3D: added function to know when we have too many obstacle requests without update
+	bool isObstacleQueueFull() const { return m_nreqs >= MAX_REQUESTS; }
+	
 	/// Encodes a tile id.
 	inline dtCompressedTileRef encodeTileId(unsigned int salt, unsigned int it) const
 	{
