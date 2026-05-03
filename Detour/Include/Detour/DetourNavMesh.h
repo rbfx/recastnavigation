@@ -84,6 +84,9 @@ static const int DT_NAVMESH_STATE_VERSION = 1;
 /// (E.g. A polygon edge is a portal that links to another polygon.)
 static const unsigned short DT_EXT_LINK = 0x8000;
 
+/// Maximum number of external links per edge.
+static const unsigned short DT_EXT_LINKS_PER_EDGE = 32;
+
 /// A value that indicates the entity does not link to anything.
 static const unsigned int DT_NULL_LINK = 0xffffffff;
 

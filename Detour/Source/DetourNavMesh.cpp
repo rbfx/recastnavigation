@@ -420,9 +420,9 @@ void dtNavMesh::connectExtLinks(dtMeshTile* tile, dtMeshTile* target, int side)
 			// Create new links
 			const float* va = &tile->verts[poly->verts[j]*3];
 			const float* vb = &tile->verts[poly->verts[(j+1) % nv]*3];
-			dtPolyRef nei[4];
-			float neia[4*2];
-			int nnei = findConnectingPolys(va,vb, target, dtOppositeTile(dir), nei,neia,4);
+			dtPolyRef nei[DT_EXT_LINKS_PER_EDGE];
+			float neia[DT_EXT_LINKS_PER_EDGE*2];
+			int nnei = findConnectingPolys(va,vb, target, dtOppositeTile(dir), nei,neia,DT_EXT_LINKS_PER_EDGE);
 			for (int k = 0; k < nnei; ++k)
 			{
 				unsigned int idx = allocLink(tile);

@@ -382,7 +382,8 @@ bool dtCreateNavMeshData(dtNavMeshCreateParams* params, unsigned char** outData,
 		}
 	}
 
-	const int maxLinkCount = edgeCount + portalCount*2 + offMeshConLinkCount*2;
+	const int portalLinksCount = params->portalLinksCount ? params->portalLinksCount : 2;
+	const int maxLinkCount = edgeCount + portalCount*portalLinksCount + offMeshConLinkCount*2;
 	
 	// Find unique detail vertices.
 	int uniqueDetailVertCount = 0;
